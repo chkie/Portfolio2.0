@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@theme {
+	--bg: #f9fafb;
+	--fg: #111827;
+	--accent: #1d4ed8;
+	--muted: #6b7280;
+	--highlight: #0ea5e9;
+	--border: #e5e7eb;
+	--hero-headline: #0f172a;
+	--hero-subline: #334155;
+}
+
+@layer base {
+	html {
+		background-color: var(--bg);
+		color: var(--fg);
+		font-family: system-ui, sans-serif;
+	}
+}
