@@ -1,14 +1,14 @@
-export const text = {
+export const texts = {
 	hero: {
 		de: {
-			headline: 'Frontend-Entwickler für moderne Weblösungen',
-			subline: 'Spezialisiert auf SvelteKit, Tailwind CSS & Shopify',
-			cta: 'Jetzt Projekt anfragen'
+			headline: 'Willkommen',
+			subline: 'Frontend mit Substanz',
+			cta: 'Mehr erfahren'
 		},
 		en: {
-			headline: 'Frontend developer for modern web solutions',
-			subline: 'Specialized in SvelteKit, Tailwind CSS & Shopify',
-			cta: 'Request project now'
+			headline: 'Welcome',
+			subline: 'Frontend with substance',
+			cta: 'Learn more'
 		}
 	}
-};
+} as const; // ⬅️ WICHTIG: macht daraus ein readonly Objekt

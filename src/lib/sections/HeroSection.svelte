@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { get } from 'svelte/store';
 	import { lang } from '$lib/stores/lang';
-	import { text } from '$lib/i18n/text';
+	import { texts } from '$lib/i18n/text';
 	import SectionWrapper from '$lib/components/SectionWrapper.svelte';
 
-	const currentLang = get(lang);
-	const t = text.hero[currentLang];
+	// automatische Reaktivität durch $lang
+	$: t = texts.hero[$lang];
 </script>
 
 <div class="relative overflow-hidden bg-white">

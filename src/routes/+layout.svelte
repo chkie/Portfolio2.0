@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '$lib/app.css';
+	import '../app.css';
 
 	export let data: {
 		title: string;
