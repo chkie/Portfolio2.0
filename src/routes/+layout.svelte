@@ -1,6 +1,8 @@
 <script lang="ts">
 	import '../app.css';
 
+	import Layout from '$lib/components/Layout.svelte';
+
 	export let data: {
 		title: string;
 		description: string;
@@ -14,4 +16,6 @@
 	<meta charset="utf-8" />
 </svelte:head>
 
-<slot />
+<Layout>
+	<slot />
+</Layout>

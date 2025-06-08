@@ -1,48 +1,24 @@
 <script lang="ts">
 	import SectionWrapper from '$lib/components/SectionWrapper.svelte';
+	import { getText } from '$lib/i18n/getText';
+	import type { ProjectItem } from '$lib/i18n/texts/projects';
+	import type { Readable } from 'svelte/store';
+
+	const headline = getText('projects', 'headline');
+	const items: Readable<ProjectItem[]> = getText('projects', 'items');
 </script>
 
-<SectionWrapper className="py-24">
-	<h2 class="text-fg text-center text-3xl font-bold sm:text-4xl md:text-5xl">
-		lorem ipsum projekte
-	</h2>
-	<p class="text-muted mx-auto mt-4 max-w-2xl text-center text-lg">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
-	</p>
+<div class="bg-gray-100">
+	<SectionWrapper className="py-24 text-center">
+		<h2 class="text-3xl font-bold text-gray-900">{$headline}</h2>
 
-	<div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-		<!-- Projekt 1 -->
-		<div class="border-border overflow-hidden rounded-2xl border bg-white shadow-sm">
-			<div class="bg-muted h-48"></div>
-			<!-- Platzhalter für Vorschaubild -->
-			<div class="p-6">
-				<h3 class="text-fg text-xl font-semibold">Projektname A</h3>
-				<p class="text-muted mt-2 text-sm">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-				</p>
-			</div>
+		<div class="mt-8 grid gap-8 md:grid-cols-2">
+			{#each $items as item (item.title)}
+				<div class="rounded-xl bg-white p-6 text-left shadow-md">
+					<h3 class="text-xl font-semibold text-gray-800">{item.title}</h3>
+					<p class="mt-2 text-gray-600">{item.description}</p>
+				</div>
+			{/each}
 		</div>
-
-		<!-- Projekt 2 -->
-		<div class="border-border overflow-hidden rounded-2xl border bg-white shadow-sm">
-			<div class="bg-muted h-48"></div>
-			<div class="p-6">
-				<h3 class="text-fg text-xl font-semibold">Projektname B</h3>
-				<p class="text-muted mt-2 text-sm">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-				</p>
-			</div>
-		</div>
-
-		<!-- Projekt 3 -->
-		<div class="border-border overflow-hidden rounded-2xl border bg-white shadow-sm">
-			<div class="bg-muted h-48"></div>
-			<div class="p-6">
-				<h3 class="text-fg text-xl font-semibold">Projektname C</h3>
-				<p class="text-muted mt-2 text-sm">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
-				</p>
-			</div>
-		</div>
-	</div>
-</SectionWrapper>
+	</SectionWrapper>
+</div>

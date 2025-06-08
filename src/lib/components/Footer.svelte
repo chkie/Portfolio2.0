@@ -1,18 +1,14 @@
 <script lang="ts">
-	// optional: dynamic year, language switch etc.
+	import { getText } from '$lib/i18n/getText';
+	const copyright = getText('footer', 'copyright');
+	const links = getText('footer', 'links');
 </script>
 
-<footer class="border-border mt-24 border-t bg-white">
-	<div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:px-8">
-		<div class="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
-			<p class="text-muted text-sm">
-				&copy; {new Date().getFullYear()} MeinPortfolio. Alle Rechte vorbehalten.
-			</p>
-
-			<nav class="flex space-x-4 text-sm">
-				<a href="/impressum" class="text-muted hover:text-fg transition-colors">Impressum</a>
-				<a href="/datenschutz" class="text-muted hover:text-fg transition-colors">Datenschutz</a>
-			</nav>
-		</div>
+<footer class="bg-gray-900 py-8 text-center text-sm text-white">
+	<p>{$copyright}</p>
+	<div class="mt-4 flex justify-center gap-6">
+		{#each $links as label}
+			<a href="impressum" class="hover:underline">{label}</a>
+		{/each}
 	</div>
 </footer>

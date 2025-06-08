@@ -1,19 +1,20 @@
-import { get } from 'svelte/store';
-import { lang, type Language } from '$lib/stores/lang';
+// src/lib/i18n/getText.ts
+import { derived, type Readable } from 'svelte/store';
 import { texts } from './text';
+import { lang } from '$lib/stores/lang';
 
-export function getText<
-	Section extends keyof typeof texts,
-	Key extends keyof (typeof texts)[Section]['de']
->(section: Section, key: Key): string {
-	const currentLang = get(lang) as Language;
+type Texts = typeof texts;
+type Section = keyof Texts;
+type Key<S extends Section> = keyof Texts[S]['de'];
 
-	const sectionTexts = texts[section];
-	const localized = sectionTexts[currentLang as keyof typeof sectionTexts];
-	const fallback = sectionTexts['de'];
-
-	const value =
-		localized?.[key as keyof typeof localized] ?? fallback?.[key as keyof typeof fallback] ?? '';
-
-	return value as string;
+export function getText<S extends Section, K extends Key<S>>(
+	section: S,
+	key: K
+): Readable<Texts[S]['de'][K]> {
+	return derived(lang, ($lang) => {
+		const sectionTexts = texts[section];
+		const localized = sectionTexts[$lang];
+		const fallback = sectionTexts['de'];
+		return (localized?.[key] ?? fallback?.[key]) as Texts[S]['de'][K];
+	});
 }

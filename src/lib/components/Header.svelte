@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { lang } from '$lib/stores/lang';
 
+	import { lang } from '$lib/stores/lang';
+	import { getText } from '$lib/i18n/getText';
+
+	const navigation = getText('layout', 'navigation');
 	const setLang = (value: 'de' | 'en') => lang.set(value);
 </script>
 
@@ -15,46 +18,48 @@
 
 			<!-- Navigation -->
 			<nav class="hidden space-x-6 md:flex">
-				<a
-					href="/"
-					class={`text-muted hover:text-fg transition-colors ${
-						$page.url.pathname === '/' ? 'text-fg font-semibold' : ''
-					}`}
-				>
-					Home
-				</a>
-				<a
-					href="/about"
-					class={`text-muted hover:text-fg transition-colors ${
-						$page.url.pathname === '/about' ? 'text-fg font-semibold' : ''
-					}`}
-				>
-					Über mich
-				</a>
-				<a
-					href="/projects"
-					class={`text-muted hover:text-fg transition-colors ${
-						$page.url.pathname === '/projects' ? 'text-fg font-semibold' : ''
-					}`}
-				>
-					Projekte
-				</a>
-				<a
-					href="/services"
-					class={`text-muted hover:text-fg transition-colors ${
-						$page.url.pathname === '/services' ? 'text-fg font-semibold' : ''
-					}`}
-				>
-					Leistungen
-				</a>
-				<a
-					href="/contact"
-					class={`text-muted hover:text-fg transition-colors ${
-						$page.url.pathname === '/contact' ? 'text-fg font-semibold' : ''
-					}`}
-				>
-					Kontakt
-				</a>
+				{#if $navigation}
+					<a
+						href="/"
+						class={`text-muted hover:text-fg transition-colors ${
+							$page.url.pathname === '/' ? 'text-fg font-semibold' : ''
+						}`}
+					>
+						{$navigation[0]}
+					</a>
+					<a
+						href="/about"
+						class={`text-muted hover:text-fg transition-colors ${
+							$page.url.pathname === '/about' ? 'text-fg font-semibold' : ''
+						}`}
+					>
+						{$navigation[1]}
+					</a>
+					<a
+						href="/projects"
+						class={`text-muted hover:text-fg transition-colors ${
+							$page.url.pathname === '/projects' ? 'text-fg font-semibold' : ''
+						}`}
+					>
+						{$navigation[2]}
+					</a>
+					<a
+						href="/services"
+						class={`text-muted hover:text-fg transition-colors ${
+							$page.url.pathname === '/services' ? 'text-fg font-semibold' : ''
+						}`}
+					>
+						{$navigation[3]}
+					</a>
+					<a
+						href="/contact"
+						class={`text-muted hover:text-fg transition-colors ${
+							$page.url.pathname === '/contact' ? 'text-fg font-semibold' : ''
+						}`}
+					>
+						{$navigation[4]}
+					</a>
+				{/if}
 			</nav>
 
 			<!-- Language Switch -->
