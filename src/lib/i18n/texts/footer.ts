@@ -10,4 +10,5 @@ export const footerTexts = {
 } as const;
 
 export type FooterTexts = typeof footerTexts;
-export type FooterLink = (typeof footerTexts.de.links)[number];
+export type FooterLink =
+       (typeof footerTexts)[keyof typeof footerTexts]['links'][number];

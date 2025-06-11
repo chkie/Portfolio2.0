@@ -17,6 +17,5 @@ export const texts = {
 	contact: contactTexts,
 	footer: footerTexts,
 	impressum: impressumTexts,
-	datenschutz: datenschutzTexts,
-	layout: layoutTexts
+       datenschutz: datenschutzTexts
 } as const;
