@@ -3,20 +3,26 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	--bg: #f9fafb;
-	--fg: #111827;
-	--accent: #1d4ed8;
-	--muted: #6b7280;
-	--highlight: #0ea5e9;
-	--border: #e5e7eb;
-	--hero-headline: #0f172a;
-	--hero-subline: #334155;
+        --bg: #FAFAFA;
+        --fg: #1E1E1E;
+        --accent: #FFBC7B;
+        --muted: #6B7280;
+        --highlight: #D6F5E1;
+        --border: #E5E7EB;
+        --hero-headline: #4E536B;
+        --hero-subline: #4E536B;
 }
 
 @layer base {
-	html {
-		background-color: var(--bg);
-		color: var(--fg);
-		font-family: system-ui, sans-serif;
-	}
+       html {
+               background-color: var(--bg);
+               color: var(--fg);
+               font-family: 'Inter', sans-serif;
+       }
+       h1, h2, h3 {
+               font-family: 'Figtree', sans-serif;
+       }
+       code {
+               font-family: 'Fira Code', monospace;
+       }
 }

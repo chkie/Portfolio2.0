@@ -13,11 +13,11 @@
 	};
 </script>
 
-<footer class="bg-gray-900 py-8 text-center text-sm text-white">
+<footer class="bg-fg py-8 text-center text-sm text-white">
 	<p>{$copyright}</p>
-	<div class="mt-4 flex justify-center gap-6">
-		{#each $links as label (label)}
-			<a href={linkMap[label]} class="hover:underline">{label}</a>
-		{/each}
-	</div>
+       <div class="mt-4 flex justify-center gap-6">
+               {#each $links as label (label)}
+                       <a href={linkMap[label]} class="text-highlight hover:text-accent transition-colors">{label}</a>
+               {/each}
+       </div>
 </footer>
