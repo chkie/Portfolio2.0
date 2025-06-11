@@ -3,7 +3,7 @@
 </script>
 
 <SectionWrapper className="py-24">
-	<h2 class="text-fg text-center text-3xl font-bold sm:text-4xl md:text-5xl">lorem ipsum skills</h2>
+	<h2 class="text-fg text-center text-3xl font-bold sm:text-4xl md:text-5xl">Skills</h2>
 	<p class="text-muted mx-auto mt-4 max-w-2xl text-center text-lg">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
 	</p>
